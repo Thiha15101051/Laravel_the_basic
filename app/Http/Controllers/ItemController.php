@@ -13,6 +13,8 @@ class ItemController extends Controller
      */
     public function index()
     {
+        $items=Item::where('id',">",5)->orWhere("price",'>',100)->dd();
+        dd($items);
         return view('inventory.index', [
             'items' => Item::paginate(7)
         ]);
